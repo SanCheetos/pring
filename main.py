@@ -16,8 +16,3 @@ image = 'https://github.com/ultralytics/yolov5/raw/master/data/images/zidane.jpg
 
 # perform inference
 results = model.predict(image)
-
-# observe results
-print(results[0].boxes)
-render = render_result(model=model, image=image, result=results[0])
-render.show()
