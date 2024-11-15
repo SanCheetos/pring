@@ -1,2 +1,1 @@
-ultralyticsplus==0.0.24
-ultralytics==8.0.23
+ultralyticsplus
