@@ -1,1 +1,8 @@
 ultralyticsplus
+.hf_utils
+.ultralytics_utils
+sahi.utils.cv
+ultralyticsplus.other_utils
+sahi.annotation
+sahi.auto_model
+sahi.models.base
