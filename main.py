@@ -9,8 +9,9 @@ import matplotlib.image as mpimg
 from PIL import Image
 
 path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
+st.text(path)
 # Path to the saved model directory
-model_dir = "/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2"
+model_dir = path
 
 # Load the model
 model = tf.saved_model.load(model_dir)
