@@ -8,12 +8,6 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
 
-# Download latest version
-
-
-st.text(path)
-
-
 st.text("updated")
 def resize_image(image_path):
     img = Image.open(image_path)
