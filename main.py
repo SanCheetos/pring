@@ -21,15 +21,6 @@ def resize_image(image_path):
     new_image.save(f"/resize/{new_image.filename}")
     return f"/resize/{new_image.filename}"
 
-# Path to the saved model directory
-model_dir = '/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2/'
-
-# Load the model
-model = tf.saved_model.load(model_dir)
-
-# Get the callable function from the loaded model
-infer = model.signatures['serving_default']
-
 def preprocess_image(img_path):
     """Load and preprocess the image."""
     img = image.load_img(img_path, target_size=(160, 160))
@@ -83,6 +74,14 @@ if (uploaded_files1 or uploaded_files2):
             st.image(uploaded_files2)
     
     if (uploaded_files1 and uploaded_files2):
+        # Path to the saved model directory
+        model_dir = '/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2/'
+        
+        # Load the model
+        model = tf.saved_model.load(model_dir)
+        
+        # Get the callable function from the loaded model
+        infer = model.signatures['serving_default']
         st.text(check_faces_similarity(uploaded_files1, uploaded_files2))
 
 # Example usage
