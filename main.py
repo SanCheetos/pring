@@ -40,7 +40,7 @@ def check_faces_similarity(img_path1, img_path2, threshold=0.6):
     print(f'Distance between faces: {distance}')
 
 # Example usage
-img_path1 = '/path/to/face1.jpg'
-img_path2 = '/path/to/face2.jpg'
+img_path1 = 'face1.jpg'
+img_path2 = 'face2.jpg'
 
 check_faces_similarity(img_path1, img_path2)
