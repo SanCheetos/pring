@@ -47,6 +47,7 @@ def check_faces_similarity(img_path1, img_path2, threshold=0.6):
     st.title(f'Разница лиц: {round(distance * 10, 2)}%')
 import streamlit as st
 
+col1, col2 = st.columns(2)
 
 with col1:
     st.header("Изображение 1")
@@ -56,11 +57,9 @@ with col2:
     st.header("Изображение 2")
     uploaded_files2 = st.file_uploader("", key="img2")
 
-col3, col4 = st.columns(2)
-
 if (uploaded_files1 or uploaded_files2):
     st.header("Превью")
-    col1, col2 = st.columns(2)
+    col3, col4 = st.columns(2)
     with col3:
         if (uploaded_files1):
             st.header("Изображение 1")
