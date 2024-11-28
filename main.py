@@ -7,6 +7,15 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
+ path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
+# Path to the saved model directory
+model_dir = "/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2"
+
+# Load the model
+model = tf.saved_model.load(model_dir)
+
+# Get the callable function from the loaded model
+infer = model.signatures['serving_default']
 
 st.text("updated")
 def resize_image(image_path):
@@ -70,15 +79,6 @@ if (uploaded_files1 or uploaded_files2):
             st.image(uploaded_files2)
     
     if (uploaded_files1 and uploaded_files2):
-        path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
-        # Path to the saved model directory
-        model_dir = "/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2"
-        
-        # Load the model
-        model = tf.saved_model.load(model_dir)
-        
-        # Get the callable function from the loaded model
-        infer = model.signatures['serving_default']
         st.text(check_faces_similarity(uploaded_files1, uploaded_files2))
 
 # Example usage
