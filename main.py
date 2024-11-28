@@ -3,6 +3,8 @@ import kagglehub
 # Download latest version
 path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
 
+st.text(path)
+
 import streamlit as st
 import tensorflow as tf
 import numpy as np
