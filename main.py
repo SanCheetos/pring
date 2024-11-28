@@ -77,7 +77,7 @@ if (uploaded_files1 or uploaded_files2):
     
     if (uploaded_files1 and uploaded_files2):
         # Path to the saved model directory
-        model_dir = path
+        model_dir = "/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2"
         
         # Load the model
         model = tf.saved_model.load(model_dir)
