@@ -1,2 +1,3 @@
-ultralyticsplus
-YOLO
+tensorflow
+numpy
+matplotlib
