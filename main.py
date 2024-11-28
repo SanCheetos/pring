@@ -58,7 +58,7 @@ with col2:
     uploaded_files2 = st.file_uploader("", key="img2")
 
 if (uploaded_files1 and uploaded_files2):
-    st.text(check_faces_similarity(uploaded_files1, uploaded_files2))
+    st.text(preprocess_image(uploaded_files1, uploaded_files2))
 # Example usage
 # img_path1 = 'face1.jpg'
 # img_path2 = 'face2.jpg'
