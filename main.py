@@ -12,7 +12,7 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
-
+st.text("updated")
 def resize_image(image_path):
     img = Image.open(image_path)
     # изменяем размер
