@@ -16,7 +16,7 @@ from PIL import Image
 def resize_image(image_path):
     img = Image.open(image_path)
     # изменяем размер
-    new_image = img.resize((200, 385))
+    new_image = img.resize((160, 160))
     st.image(new_image)
     return new_image
 
