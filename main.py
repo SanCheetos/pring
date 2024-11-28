@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 # Path to the saved model directory
-model_dir = '/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2'
+model_dir = '/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2/'
 
 # Load the model
 model = tf.saved_model.load(model_dir)
