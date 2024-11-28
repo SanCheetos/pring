@@ -18,7 +18,7 @@ def resize_image(image_path):
     # изменяем размер
     new_image = img.resize((160, 160))
     st.image(new_image)
-    return new_image
+    return new_image.filename
 
 # Path to the saved model directory
 model_dir = '/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2/'
@@ -35,7 +35,7 @@ def preprocess_image(img_path):
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array = preprocess_input(img_array)
-    return img_array.filename
+    return img_array
 
 def get_face_embedding(img_path):
     """Generate face embedding from an image."""
