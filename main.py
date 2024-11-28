@@ -4,7 +4,7 @@
 # path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
 
 # print("Path to model files:", path)
-
+import streamlit as st
 import tensorflow as tf
 import numpy as np
 from tensorflow.keras.preprocessing import image
@@ -44,7 +44,7 @@ def check_faces_similarity(img_path1, img_path2, threshold=0.6):
 
     # Compute Euclidean distance between embeddings
     distance = np.linalg.norm(embedding1 - embedding2)
-    print(f'Distance between faces: {distance}')
+    st.title(f'Distance between faces: {distance}')
 
 # Example usage
 img_path1 = 'face1.jpg'
