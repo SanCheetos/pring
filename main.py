@@ -58,8 +58,8 @@ with col2:
     uploaded_files2 = st.file_uploader("", key="img2")
 
 if (uploaded_files1 and uploaded_files2):
-    st.text(preprocess_image(uploaded_files1))
-    st.text(preprocess_image(uploaded_files2))
+    st.text(get_face_embedding(uploaded_files1))
+    st.text(get_face_embedding(uploaded_files2))
 
 # Example usage
 # img_path1 = 'face1.jpg'
