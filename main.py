@@ -9,7 +9,7 @@ import matplotlib.image as mpimg
 from PIL import Image
 
 # Download latest version
-path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
+
 
 st.text(path)
 
@@ -76,6 +76,7 @@ if (uploaded_files1 or uploaded_files2):
             st.image(uploaded_files2)
     
     if (uploaded_files1 and uploaded_files2):
+        path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
         # Path to the saved model directory
         model_dir = "/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2"
         
