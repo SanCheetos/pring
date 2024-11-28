@@ -7,7 +7,8 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
- path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
+
+path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
 # Path to the saved model directory
 model_dir = "/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2"
 
