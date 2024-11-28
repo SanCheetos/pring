@@ -19,6 +19,7 @@ def resize_image(image_path):
     new_image = img.resize((160, 160))
     st.image(new_image)
     new_image.save(f"/resize/{new_image.filename}")
+    return f"/resize/{new_image.filename}"
 
 # Path to the saved model directory
 model_dir = '/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2/'
