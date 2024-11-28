@@ -1,3 +1,10 @@
+import kagglehub
+
+# Download latest version
+path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
+
+print("Path to model files:", path)
+
 import tensorflow as tf
 import numpy as np
 from tensorflow.keras.preprocessing import image
