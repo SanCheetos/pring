@@ -18,7 +18,7 @@ def resize_image(image_path):
     # изменяем размер
     new_image = img.resize((160, 160))
     st.image(new_image)
-    return new_image.filename
+    new_image.save(image_path)
 
 # Path to the saved model directory
 model_dir = '/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2/'
@@ -47,8 +47,8 @@ def get_face_embedding(img_path):
 
 def check_faces_similarity(img_path1, img_path2, threshold=0.6):
     """Verify if two faces are the same person based on embeddings."""
-    img_path1 = resize_image(img_path1)
-    img_path2 = resize_image(img_path2)
+    resize_image(img_path1)
+    resize_image(img_path2)
     embedding1 = get_face_embedding(img_path1)
     embedding2 = get_face_embedding(img_path2)
 
