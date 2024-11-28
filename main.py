@@ -1,10 +1,4 @@
 import kagglehub
-
-# Download latest version
-path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
-
-st.text(path)
-
 import streamlit as st
 import tensorflow as tf
 import numpy as np
@@ -13,6 +7,13 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
+
+# Download latest version
+path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
+
+st.text(path)
+
+
 st.text("updated")
 def resize_image(image_path):
     img = Image.open(image_path)
