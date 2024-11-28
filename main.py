@@ -44,7 +44,7 @@ def check_faces_similarity(img_path1, img_path2, threshold=0.6):
 
     # Compute Euclidean distance between embeddings
     distance = np.linalg.norm(embedding1 - embedding2)
-    st.title(f'Distance between faces: {distance}')
+    st.title(f'Разница лиц: {round(distance * 100, 2)}%')
 import streamlit as st
 
 col1, col2 = st.columns(2)
@@ -58,8 +58,7 @@ with col2:
     uploaded_files2 = st.file_uploader("", key="img2")
 
 if (uploaded_files1 and uploaded_files2):
-    st.text(get_face_embedding(uploaded_files1))
-    st.text(get_face_embedding(uploaded_files2))
+    st.text(check_faces_similarity(uploaded_files1, uploaded_files2))
 
 # Example usage
 # img_path1 = 'face1.jpg'
