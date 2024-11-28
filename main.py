@@ -51,11 +51,11 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.header("Изображение 1")
-    uploaded_files1 = st.file_uploader("")
+    uploaded_files1 = st.file_uploader("", key="img1")
 
 with col2:
     st.header("Изображение 2")
-    uploaded_files2 = st.file_uploader("")
+    uploaded_files2 = st.file_uploader("", key="img2")
 
 if (uploaded_files1 and uploaded_files2):
     check_faces_similarity(uploaded_files1, uploaded_files2)
