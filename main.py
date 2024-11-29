@@ -9,7 +9,7 @@ import matplotlib.image as mpimg
 from PIL import Image
 
 path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
-st.text(path)
+st.title("Модель для сравнивания 2-х лиц")
 # Path to the saved model directory
 model_dir = path
 
@@ -19,7 +19,6 @@ model = tf.saved_model.load(model_dir)
 # Get the callable function from the loaded model
 infer = model.signatures['serving_default']
 
-st.text("updated")
 def resize_image(image_path):
     img = Image.open(image_path)
     # изменяем размер
