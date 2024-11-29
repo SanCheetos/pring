@@ -86,3 +86,11 @@ if (uploaded_files1 or uploaded_files2):
 # Example usage
 # img_path1 = 'face1.jpg'
 # img_path2 = 'face2.jpg'
+from typing import Annotated
+
+from fastapi import FastAPI, File, UploadFile
+
+app = FastAPI()
+@app.post("/files/")
+async def create_file(file: Annotated[bytes, File()]):
+    return {"file_size": len(file)}
