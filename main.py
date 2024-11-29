@@ -92,5 +92,7 @@ from fastapi import FastAPI, File, UploadFile
 
 app = FastAPI()
 @app.post("/files/")
-async def create_file(file: Annotated[bytes, File()]):
-    return {"file_size": len(file)}
+async def create_file(file1: Annotated[UploadFile, File()], file2: Annotated[UploadFile, File()]):
+    uFile1 = await file1.read() 
+    uFile2 = await file2.read() 
+    return {"distance": check_faces_similarity(uFile1, uFile2)}
