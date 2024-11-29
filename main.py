@@ -25,8 +25,8 @@ def resize_image(image_path):
     # изменяем размер
     new_image = img.resize((160, 160))
     st.image(new_image)
-    new_image.save(f"/resize/{new_image.filename}")
-    return f"/resize/{new_image.filename}"
+    new_image.save(f"/resize/temp")
+    return f"/resize/temp"
 
 def preprocess_image(img_path):
     """Load and preprocess the image."""
