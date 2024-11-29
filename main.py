@@ -46,10 +46,10 @@ def get_face_embedding(img_path):
 
 def check_faces_similarity(img_path1, img_path2, threshold=0.6):
     """Verify if two faces are the same person based on embeddings."""
-    img_pathR1 = resize_image(img_path1)
-    img_pathR2 = resize_image(img_path2)
-    embedding1 = get_face_embedding(img_pathR1)
-    embedding2 = get_face_embedding(img_pathR2)
+    #img_pathR1 = resize_image(img_path1)
+    #img_pathR2 = resize_image(img_path2)
+    embedding1 = get_face_embedding(img_path)
+    embedding2 = get_face_embedding(img_path)
 
     # Compute Euclidean distance between embeddings
     distance = np.linalg.norm(embedding1 - embedding2)
