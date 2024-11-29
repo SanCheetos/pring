@@ -22,7 +22,7 @@ def resize_image(img):
     new_image = img.resize((160, 160))
     st.image(new_image)
     
-    # Создаем директорию для сохранения изображений, если она не существует
+    # Создаем директорию для сохранения изображений
     save_dir = "resized_images"
     os.makedirs(save_dir, exist_ok=True)
     
@@ -72,7 +72,6 @@ def check_faces_similarity(img_url1, img_url2, threshold=0.6):
     distance = round((distance * 10), 2)
     st.title(f'Разница лиц: {distance}%')
 
-# Пример использования
 url1 = 'https://github.com/SanCheetos/pring/blob/main/face1.jpg?raw=true'
 url2 = 'https://github.com/SanCheetos/pring/blob/main/face2.jpg?raw=true'
 
