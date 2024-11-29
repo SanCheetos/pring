@@ -53,7 +53,7 @@ def check_faces_similarity(img_path1, img_path2, threshold=0.6):
 
     # Compute Euclidean distance between embeddings
     distance = np.linalg.norm(embedding1 - embedding2)
-    distance = round((distance * 10), 2)
+    distance = round(float(distance), 2)
     return distance
     
 import streamlit as st
