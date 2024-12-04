@@ -1,4 +1,5 @@
 tensorflow
+streamlit
 numpy
 matplotlib
 kagglehub
@@ -6,3 +7,4 @@ pillow
 python-multipart
 fastapi
 uvicorn
+io
