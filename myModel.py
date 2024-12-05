@@ -45,7 +45,7 @@ def check_faces_similarity(img_path1, img_path2, threshold=0.6):
     #img_pathR1 = resize_image(img_path1)
     #img_pathR2 = resize_image(img_path2)
     check_files_result = [check_file(img_path1), check_file(img_path2)]
-    if (check_files_result[0] == True) and (check_files_result == True): 
+    if (check_files_result[0] == True) and (check_files_result[1] == True): 
         embedding1 = get_face_embedding(img_path1, infer)
         embedding2 = get_face_embedding(img_path2, infer)
 
