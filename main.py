@@ -11,17 +11,6 @@ from PIL import Image
 #from fastapi import FastAPI, File, UploadFile
 #from io import BytesIO
 
-path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
-st.title("Модель для сравнивания 2-х лиц")
-# Path to the saved model directory
-model_dir = path
-
-# Load the model
-model = tf.saved_model.load(model_dir)
-
-# Get the callable function from the loaded model
-infer = model.signatures['serving_default']
-
 def resize_image(image_path):
     img = Image.open(image_path)
     # изменяем размер
@@ -82,6 +71,16 @@ if (uploaded_files1 or uploaded_files2):
             st.image(uploaded_files2)
     
     if (uploaded_files1 and uploaded_files2):
+        path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
+        st.title("Модель для сравнивания 2-х лиц")
+        # Path to the saved model directory
+        model_dir = path
+
+        # Load the model
+        model = tf.saved_model.load(model_dir)
+
+        # Get the callable function from the loaded model
+        infer = model.signatures['serving_default']
         st.text(f"distance: {check_faces_similarity(uploaded_files1, uploaded_files2)}")
 
 # app = FastAPI()
@@ -94,3 +93,5 @@ if (uploaded_files1 or uploaded_files2):
 # @app.get("/")
 # async def root():
 #     return {"message": "Hello World"}
+from tests import model_tests
+model_tests.similarImg()
