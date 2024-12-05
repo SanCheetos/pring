@@ -24,10 +24,10 @@ def get_face_embedding(img_path, infer):
     return embedding
 
 def check_file(file):
-    if type(file) == "String":
+    if type(file) == str:
         if not (os.path.exists(file)):
             return "Один из файлов не существует"
-    elif not (type(file) == "UploadedFile"):
+    elif not (type(file) == "<class 'streamlit.runtime.uploaded_file_manager.UploadedFile'>"):
         return "Введите путь к файлу или загрузите напрямую"
     else:
         return True
