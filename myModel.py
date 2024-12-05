@@ -58,5 +58,10 @@ def check_faces_similarity(img_path1, img_path2, threshold=0.6):
     else:
         if check_files_result[0] == check_files_result[1]:
             return check_files_result[0]
+        i = 0
+        while i < len(check_files_result):
+            if (check_files_result[i] == True)
+                check_files_result.pop(i)
+            i += 1
         else:
-            return check_files_result[0] + ", " + check_files_result[1]
+            return ', '.join(check_files_result[0])

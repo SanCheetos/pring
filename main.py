@@ -32,7 +32,6 @@ if (uploaded_files1 or uploaded_files2):
         if (uploaded_files1):
             st.header("Изображение 1")
             st.image(uploaded_files1)
-            st.text(str(type(uploaded_files1)))
     
     with col4:
         if (uploaded_files2):
@@ -40,7 +39,7 @@ if (uploaded_files1 or uploaded_files2):
             st.image(uploaded_files2)
     
     if (uploaded_files1 and uploaded_files2):
-        st.text(f"distance: {check_faces_similarity(uploaded_files1.name, uploaded_files2.name)}")
+        st.text(f"distance: {check_faces_similarity(uploaded_files1, uploaded_files2)}")
 
 # app = FastAPI()
 # @app.post("/files/")
