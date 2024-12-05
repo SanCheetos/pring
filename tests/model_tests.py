@@ -4,7 +4,7 @@ import os
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(parent_dir)
 
-from main import check_faces_similarity
+from myModel import check_faces_similarity
 
 
 def similarImg():
