@@ -1,12 +1,8 @@
 import kagglehub
-import streamlit as st
 import tensorflow as tf
 import numpy as np
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.resnet50 import preprocess_input
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-from PIL import Image
 import os.path
 
 
