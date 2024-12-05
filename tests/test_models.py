@@ -13,3 +13,9 @@ def test_similarImg():
 
 def test_noImage():
     assert check_faces_similarity("asdasdas", "face1.jpg") == "Один из файлов не существует"
+
+def test_wrongType():
+    assert check_faces_similarity(True, 1) == "Введите путь к файлу или загрузите напрямую"
+
+def test_wrongTypeAndNoImage():
+    assert check_faces_similarity(True, "123321") == "Введите путь к файлу или загрузите напрямую, Один из файлов не существует"
