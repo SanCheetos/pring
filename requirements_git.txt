@@ -1,8 +1,8 @@
 tensorflow
 matplotlib
 kagglehub
-#pillow
+pillow
 python-multipart
-#fastapi
-#io
+fastapi
+io
 pytest
