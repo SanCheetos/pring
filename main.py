@@ -51,6 +51,6 @@ if (uploaded_files1 or uploaded_files2):
 # @app.get("/")
 # async def root():
 #     return {"message": "Hello World"}
-# from tests import model_tests
+# from tests import test_models
 # model_tests.similarImg()
 # model_tests.noImage()
