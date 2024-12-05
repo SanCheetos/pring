@@ -1,9 +1,4 @@
-# import kagglehub
-
-# # Download latest version
-# path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
-
-# print("Path to model files:", path)
+import kagglehub
 import streamlit as st
 import tensorflow as tf
 import numpy as np
@@ -12,14 +7,28 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
-st.text("updated")
+#from typing import Annotated
+#from fastapi import FastAPI, File, UploadFile
+#from io import BytesIO
+
+path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
+st.title("Модель для сравнивания 2-х лиц")
+# Path to the saved model directory
+model_dir = path
+
+# Load the model
+model = tf.saved_model.load(model_dir)
+
+# Get the callable function from the loaded model
+infer = model.signatures['serving_default']
+
 def resize_image(image_path):
     img = Image.open(image_path)
     # изменяем размер
     new_image = img.resize((160, 160))
     st.image(new_image)
-    new_image.save(f"/resize/{new_image.filename}")
-    return f"/resize/{new_image.filename}"
+    new_image.save(f"/resize/temp")
+    return f"/resize/temp"
 
 def preprocess_image(img_path):
     """Load and preprocess the image."""
@@ -39,17 +48,16 @@ def get_face_embedding(img_path):
 
 def check_faces_similarity(img_path1, img_path2, threshold=0.6):
     """Verify if two faces are the same person based on embeddings."""
-    img_pathR1 = resize_image(img_path1)
-    img_pathR2 = resize_image(img_path2)
-    embedding1 = get_face_embedding(img_pathR1)
-    embedding2 = get_face_embedding(img_pathR2)
+    #img_pathR1 = resize_image(img_path1)
+    #img_pathR2 = resize_image(img_path2)
+    embedding1 = get_face_embedding(img_path1)
+    embedding2 = get_face_embedding(img_path2)
 
     # Compute Euclidean distance between embeddings
     distance = np.linalg.norm(embedding1 - embedding2)
-    distance = round((distance * 10), 2)
-    st.title(f'Разница лиц: {distance}%')
-import streamlit as st
-
+    distance = round(float(distance), 2)
+    return distance
+    
 col1, col2 = st.columns(2)
 
 with col1:
@@ -74,18 +82,15 @@ if (uploaded_files1 or uploaded_files2):
             st.image(uploaded_files2)
     
     if (uploaded_files1 and uploaded_files2):
-        # Path to the saved model directory
-        model_dir = '/home/appuser/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2/'
-        
-        # Load the model
-        model = tf.saved_model.load(model_dir)
-        
-        # Get the callable function from the loaded model
-        infer = model.signatures['serving_default']
-        st.text(check_faces_similarity(uploaded_files1, uploaded_files2))
+        st.text(f"distance: {check_faces_similarity(uploaded_files1, uploaded_files2)}")
 
-# Example usage
-# img_path1 = 'face1.jpg'
-# img_path2 = 'face2.jpg'
+# app = FastAPI()
+# @app.post("/files/")
+# async def create_file(file1: Annotated[UploadFile, File(...)], file2: Annotated[UploadFile, File(...)]):
+#     uFile1 = await file1.read() 
+#     uFile2 = await file2.read() 
+#     return {"distance": check_faces_similarity(BytesIO(uFile1), BytesIO(uFile2))}
 
-
+# @app.get("/")
+# async def root():
+#     return {"message": "Hello World"}

@@ -1,5 +1,7 @@
 tensorflow
-numpy
 matplotlib
 kagglehub
-pillow
+#pillow
+python-multipart
+#fastapi
+#io
