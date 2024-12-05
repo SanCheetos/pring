@@ -1,6 +1,5 @@
 tensorflow
 streamlit
-numpy
 matplotlib
 kagglehub
 pillow
