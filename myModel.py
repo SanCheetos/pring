@@ -26,9 +26,7 @@ def get_face_embedding(img_path, infer):
 def check_file(file):
     if type(file) == str:
         if not (os.path.exists(file)):
-            return "Один из файлов не существует"
-    elif not (type(file) == "<class 'streamlit.runtime.uploaded_file_manager.UploadedFile'>"):
-        return "Введите путь к файлу или загрузите напрямую"
+            return False
     else:
         return True
 
@@ -56,12 +54,4 @@ def check_faces_similarity(img_path1, img_path2, threshold=0.6):
         distance = round(float(distance), 2)
         return distance
     else:
-        if check_files_result[0] == check_files_result[1]:
-            return check_files_result[0]
-        i = 0
-        while i < len(check_files_result):
-            if (check_files_result[i] == True):
-                check_files_result.pop(i)
-            i += 1
-        else:
-            return ', '.join(check_files_result[0])
+        return "Один из файлов не существует"
