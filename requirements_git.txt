@@ -4,6 +4,6 @@ kagglehub
 pillow
 python-multipart
 fastapi
-io
+#io
 pytest
 os
