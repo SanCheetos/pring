@@ -53,3 +53,4 @@ if (uploaded_files1 or uploaded_files2):
 #     return {"message": "Hello World"}
 from tests import model_tests
 model_tests.similarImg()
+model_tests.noImage()
