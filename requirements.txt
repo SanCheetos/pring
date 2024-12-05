@@ -6,4 +6,3 @@ python-multipart
 #fastapi
 #io
 pytest
-os
