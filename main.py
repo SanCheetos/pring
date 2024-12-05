@@ -7,9 +7,9 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
-from typing import Annotated
-from fastapi import FastAPI, File, UploadFile
-from io import BytesIO
+#from typing import Annotated
+#from fastapi import FastAPI, File, UploadFile
+#from io import BytesIO
 
 path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
 st.title("Модель для сравнивания 2-х лиц")
@@ -84,13 +84,13 @@ if (uploaded_files1 or uploaded_files2):
     if (uploaded_files1 and uploaded_files2):
         st.text(f"distance: {check_faces_similarity(uploaded_files1, uploaded_files2)}")
 
-app = FastAPI()
-@app.post("/files/")
-async def create_file(file1: Annotated[UploadFile, File(...)], file2: Annotated[UploadFile, File(...)]):
-    uFile1 = await file1.read() 
-    uFile2 = await file2.read() 
-    return {"distance": check_faces_similarity(BytesIO(uFile1), BytesIO(uFile2))}
+# app = FastAPI()
+# @app.post("/files/")
+# async def create_file(file1: Annotated[UploadFile, File(...)], file2: Annotated[UploadFile, File(...)]):
+#     uFile1 = await file1.read() 
+#     uFile2 = await file2.read() 
+#     return {"distance": check_faces_similarity(BytesIO(uFile1), BytesIO(uFile2))}
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+# @app.get("/")
+# async def root():
+#     return {"message": "Hello World"}
