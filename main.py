@@ -32,6 +32,7 @@ if (uploaded_files1 or uploaded_files2):
         if (uploaded_files1):
             st.header("Изображение 1")
             st.image(uploaded_files1)
+            st.text(type(uploaded_files1))
     
     with col4:
         if (uploaded_files2):
