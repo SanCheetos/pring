@@ -7,6 +7,8 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
+import os.path
+
 
 #from typing import Anno
 def preprocess_image(img_path):
@@ -38,6 +40,8 @@ def check_faces_similarity(img_path1, img_path2, threshold=0.6):
     """Verify if two faces are the same person based on embeddings."""
     #img_pathR1 = resize_image(img_path1)
     #img_pathR2 = resize_image(img_path2)
+    if (not (os.path.exists(img_path1)) or not (os.path.exists(img_path2))):
+        return "Один из файлов не существует"
     embedding1 = get_face_embedding(img_path1, infer)
     embedding2 = get_face_embedding(img_path2, infer)
 
