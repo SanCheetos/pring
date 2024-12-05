@@ -27,6 +27,8 @@ def check_file(file):
     if type(file) == str:
         if not (os.path.exists(file)):
             return False
+        else:
+            return True
     else:
         return True
 
