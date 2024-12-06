@@ -13,5 +13,4 @@ def test_similarImg():
 
 
 def test_noImage():
-    assert check_faces_similarity("asdasdas",
-        "face1.jpg") == "Один из файлов не существует"
+    assert check_faces_similarity("asdasdas", "face1.jpg") == "Один из файлов не существует"
