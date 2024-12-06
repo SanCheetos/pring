@@ -27,7 +27,7 @@ def get_face_embedding(img_path, infer):
 
 
 def check_file(file):
-    if isinstance(str, type(file)):
+    if isinstance(str, file):
         if not (os.path.exists(file)):
             return False
         else:
